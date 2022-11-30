@@ -72,16 +72,20 @@ def fussganger():
 normal()
 
 i = 0
+#
 while True:
+    # Checking if the button is pressed. If it is, it will run the function fussganger() and reset the counter i to 0.
     if taster.value() == 1:
         fussganger()
         i = 0
 
 
-    elif i > 200:
+    # Checking if the counter i is greater than 400. If it is, it will reset the counter to 0 and run the function auto().
+    elif i > 400: # Anzahl der Minigrünphase
         i = 0
         auto()
 
+    # The time between the green light for the cars and the green light for the pedestrians.
     else:
-        time.sleep_ms(20)
+        time.sleep_ms(10)#Länge der Minigrünphase
         i += 1
