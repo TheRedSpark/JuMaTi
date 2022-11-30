@@ -29,7 +29,25 @@ def normal():
     rotMensch(1)
 
 
-def fuSSganger():
+def auto():
+    gelbAuto(1)
+    gruenAuto(0)
+    time.sleep_ms(300)
+    rotAuto(1)
+    gelbAuto(0)
+    time.sleep(1)
+
+    time.sleep(2)  # The Rote Zeit
+
+    time.sleep_ms(300)
+    gelbAuto(1)
+    time.sleep_ms(500)
+    rotAuto(0)
+    gelbAuto(0)
+    gruenAuto(1)
+
+
+def fussganger():
     gelbAuto(1)
     gruenAuto(0)
     time.sleep_ms(300)
@@ -53,9 +71,17 @@ def fuSSganger():
 
 normal()
 
+i = 0
 while True:
     if taster.value() == 1:
-        fuSSganger()
+        fussganger()
+        i = 0
+
+
+    elif i > 200:
+        i = 0
+        auto()
 
     else:
-        pass
+        time.sleep_ms(20)
+        i += 1
